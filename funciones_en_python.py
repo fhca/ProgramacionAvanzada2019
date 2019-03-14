@@ -13,6 +13,7 @@ def f(x):  # <-- esta línea se llama 'encabezado' de la función
     return x ** 2 + 7  # esta es la regla para aplicarle a x
     x = 25  # esto ya no lo va a hacer, pues la función acaba con el return
 
+
 "Una función puede no devolver valores."
 
 
@@ -22,12 +23,12 @@ def g():
     que tipo de valores se espera para cada parámetro, y por último, que
     tipo de valor debe devolver la función."""
     print("A")
-    #si no le ponemos "return valor", la función devuelve None
+    # si no le ponemos "return valor", la función devuelve None
 
 
 "uso:"
-f(4)  #  el 23 se pierde!!!
-f(4)+7  #  el 30 se pierde!!!
+f(4)  # el 23 se pierde!!!
+f(4) + 7  # el 30 se pierde!!!
 print(f(4))  # internamente, x vale 4, devuelve 23, lo imprime.
 
 g()  # me imprime "A"
@@ -58,16 +59,80 @@ print(suma_2(2, 3))  # devuelve 5
 print(suma_3(4, 5, 6))  # devuelve 15
 print(suma_n(5, 2, 4, 3, 3, 1, 2, 7))  # suma todos!, da 27
 
+"""
+Valores en Python:
+
+Tipos de datos que pueden haber en Python.
+
+type(objeto)  -> devuelve el nombre del tipo de objeto
+
+"declaración de variables" decir de que tipo será el objeto que contendrá una variable.
+
+Ej. en C:    int x; ... x = 7;   "int x" declara que "x" contendrá enteros...
+NOTA: En Python NO HAY DECLARACIÓN DE VARIABLES!!!
+NOTA2: EN Python NO HAY ESTRICTAMENTE VARIABLES
+NOTA3: En Python le llamamos variables a "nombres" o "etiquetas" que le "colgamos" a un objeto 
+para referirnos a él. Por ejemplo. x = 7 ...  x = "Hola Paty"... o sea, que no hay forma de saber en principio
+que tipo de objeto contiene x, dado que no se declara.
+
+Lenguaje "tipado" (con tipos de datos).- Los objetos pueden ser de varios tipos.  Python SI ES TIPADO.
+Analizando que pasa cuando hacemos x=7 y dos lineas mas abajo hacemo x="Hola Paty", como "x" no "contiene"
+al objeto que se le asigna, lo que existe EN MEMORIA (del programa que está corriendo en ese momento) 
+en realidad es únicamente el objeto, NO "x". 
+    
+
+TIPO        Ejemplo     Descripción
+object      ...         Casi todo en Python es un object (objeto)
+
+int         7           valor numérico, que se puede operar   [inmutable]
+
+float       7.0         valor numérico, "mas grande" que los enteros... [inmutable]
+
+str         "hola Paty" String... sucesión de caracteres, las operaciones [inmutable]
+
+tuple       (1,2,3)     tupla de objetos [inmutable] a[0]=5  (error, no puedo modificar el primer valor de la tupla)
+
+list        [1,2,3]     lista de objetos [mutable]  a[0]=5  -> a se convierte en [5,2,3]
+
+set         {1,2,3}     conjunto, no hay un orden para sus elementos y estos son únicos.
+
+dict        {"platano":"banana", "manzana":"apple"}   Los diccionarios son parejas "llave":"valor"
+Se pueden ver como conjuntos cuyo índice son las llaves.... {1:(4,2), 2:(9.5,4)} [mutable][iterable]
+Las llaves no pueden ser mutables (de hecho, deben ser hasheables  (hasheable=al objeto le puedo aplicar
+una función que me dé un valor único para un objeto dado. a=[1,2,3] no es hasheable por que primero que
+nada es mutable, pero además, es el mismo objeto que a=[5,2,3]))
+
+
+
+
+
+a = (1,2,3)
+a.append(4)  -> ERROR!, las tuplas son inmutables.
+b = [1,2,3]
+b.append(4)  -> [1,2,3,4]
+
+aa = list(a)
+aa.append(4)
+aa = tuple(aa)  -> (1,2,3,4)
+
+
+
+"""
+
+
 "Otra forma: utilizando una lista como parámatro."
 
 
-def suma_n_otra(lista):  # supongamos que siempre le pasaremos un lista
+def suma_n_otra(chivito):  # supongamos que siempre le pasaremos un lista
     """suma los elementos de la lista que se le pase.
     Es UN SÓLO PARÁMETRO, pero como es lista, puede
-    tener muchos elementos."""
-    return sum(lista)
+    tener muchos elementos.
+    :param chivito: list   # <-- se sugiere que el parametro 'chivito' sea lista
+    """
+    return sum(chivito)
 
 
+print(suma_n_otra([2, 3]))
 "definamos una función con dos parámetros."
 
 
