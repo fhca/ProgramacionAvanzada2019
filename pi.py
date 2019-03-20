@@ -14,31 +14,23 @@ Distancia Euclidiana - Métrica usual en R**2
 
 def montecarlo():
     n = 1000000000
-    """
-    numero de puntos
-    """
     puntos = np.random.rand(2 * n).reshape((n, 2))
-    """
-    ddsadasdasdasd
-    dsadasdasd
-    dsadas
-    """
     centro = np.array([.5, .5])
-    """
-    dsadasd
-    dsadasdasdas
-    dsada
-    
-    """
     dist_cuadrado = np.sum((puntos - centro) ** 2, axis=1)
-    """
-    """
     puntos_en_circulo = np.sum(dist_cuadrado < .25)
-    """
-    """
     return 4 * puntos_en_circulo / n
 
 
+def montecarlo2():
+    n = 1000000000
+    centro = np.array([.5, .5])
+    puntos_en_circulo = 0
+    for i in range(n):
+        punto = np.random.rand(2)
+        dist_cuadrado = np.sum((punto - centro) ** 2)
+        if dist_cuadrado < .25:
+            puntos_en_circulo += 1  # incrementa el num de puntos dentro del círculo
+    return 4 * puntos_en_circulo / n
 
 
-print(montecarlo())
+print(montecarlo2())
