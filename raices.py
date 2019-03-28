@@ -19,7 +19,10 @@ def raiz_cuadrada(n):
     return x0
 
 
-print(raiz_cuadrada(65610000*65610000))
+print(raiz_cuadrada(7))
+
+#                 http://gen.lib.rus.ec       <---  para bajar libros
+
 
 """
 graficando
